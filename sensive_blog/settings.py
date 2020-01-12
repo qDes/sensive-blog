@@ -14,6 +14,8 @@ SECRET_KEY = os.getenv("SECRET_KEY", "REPLACE_ME")
 
 DEBUG = env.bool("DEBUG", True)
 
+INTERNAL_IPS = ('127.0.0.1', 'localhost',)
+
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -23,6 +25,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'blog',
+    'debug_toolbar',
 ]
 
 MIDDLEWARE = [
@@ -33,6 +36,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
 ]
 
 ROOT_URLCONF = 'sensive_blog.urls'
