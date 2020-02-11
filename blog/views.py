@@ -27,8 +27,6 @@ def serialize_tag(tag):
         'posts_with_tag': tag.posts_count,
     }
 
-    path('__debug__/', include(debug_toolbar.urls)),
-
 
 def index(request):
     most_popular_posts = Post.objects.popular() \
